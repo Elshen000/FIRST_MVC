@@ -1,0 +1,18 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Update";
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="">Category Name</label>
+        <input asp-for="@Model.Name" class="form-control" placeholder="Category Name">
+        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="Index" class="btn btn-primary">Go Back</a>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>

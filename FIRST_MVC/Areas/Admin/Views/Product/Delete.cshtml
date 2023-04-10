@@ -1,0 +1,13 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form method="post">
+    <div class="form-group">
+        Are you sure delete this Product (@Model.Name)?
+    </div>
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-primary">Go Back</a>
+</form>

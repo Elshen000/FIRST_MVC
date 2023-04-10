@@ -1,0 +1,15 @@
+﻿
+@model Category
+
+<form method="post">
+    <div class="form-group">
+        Are you sure delete this Category (@Model.Name)?
+    </div>
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-primary">Go Back</a>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+

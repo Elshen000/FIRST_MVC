@@ -1,0 +1,95 @@
+﻿@model HomeVM
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- MAIN START -->
+
+<main>
+
+    <!-- SLIDER START -->
+
+    <section id="slider">
+        <div class="owl-carousel slider" style="position:relative;">
+            @foreach (SliderImage sliderImage in Model.SliderImage)
+            {
+                <div> <img src="~/img/@sliderImage.Image" alt=""> </div>
+            }
+
+
+        </div>
+
+       
+    </section>
+
+    <!-- SLIDER END -->
+    <!-- PRODUCTS START -->
+
+    <section id="products">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-12 d-flex justify-content-between">
+                    <ul class="category-mobile d-md-none list-unstyled">
+                        <li>
+                            <a href="" class="categories mr-2">Categories</a>
+                            <i class="fas fa-caret-down"></i>
+                            <ul class="category list-unstyled" style="display: none;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                                <li><a href="" data-id="all">Hamısı</a></li>
+                                @foreach (Category cat in Model.Categories)
+                                {
+                                    <li><a href="" data-id="cat-@cat.Id">@cat.Name</a></li>
+
+                                }
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="category d-none d-md-flex list-unstyled"style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                        <li><a href="" data-id="all">Hamısı</a></li>
+                        @foreach (Category cat in Model.Categories)
+                        {
+                            <li><a href="" data-id="cat-@cat.Id">@cat.Name</a></li>
+
+                        }
+                    </ul>
+                 
+                </div>
+            </div>
+            <div class="row" id="myProducts">
+                @foreach (Product product in Model.Products)
+                {
+                    <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                        <div class="product-item text-center" data-id="cat-@product.Category.Id">
+                            <div class="img">
+                                <a asp-controller="Shop" asp-action="Detail" asp-route-id="@product.Id">
+                                    <img style="border-radius:35%;width:150px;height:150px;" src="~/img/@product.Image" class="img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="title mt-3">
+                                <h6>@product.Name</h6>
+                            </div>
+                            <div class="price">
+                                <span class="text-black-50">Kart əlavə et</span>
+                                <span class="text-black-50">@product.Price AZN</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- PRODUCTS END -->
+ 
+
+   
+  
+   
+  
+
+</main>
+
+<!-- MAIN END -->
